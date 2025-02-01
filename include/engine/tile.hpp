@@ -1,5 +1,6 @@
-#include "piece.h"
+#pragma once
 
+#include "engine/piece.hpp"
 namespace Engine {
 
 class Tile {

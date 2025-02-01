@@ -1,5 +1,4 @@
 #pragma once
-
 namespace Engine {
 
 class BoardConstants {

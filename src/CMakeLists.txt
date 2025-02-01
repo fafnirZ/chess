@@ -1,6 +1,6 @@
 file(GLOB
     ENGINE_SOURCES
-    "engine/*.cpp"
+    "engine/**/*.cpp"
 )
 
 set(SOURCES

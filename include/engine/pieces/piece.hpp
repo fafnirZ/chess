@@ -21,8 +21,8 @@ enum Colour {
 class IPiece {
 public:
     // // Constructor that initializes the Ipiece with a position
-    // IPiece(Colour colour) 
-    //     : colour(colour) {}
+    IPiece(Colour colour) 
+        : colour(colour) {}
     // Virtual destructor for proper cleanup when deleting via base class pointer
     virtual ~IPiece() = default;
 
@@ -38,25 +38,18 @@ public:
         std::tuple<int,int> curr_position
     ) = 0;
 
-};
-
-
-class BasePiece {
-public:
-    // Constructor that initializes the BasePiece with colour
-    BasePiece(Colour colour) 
-        : colour(colour) {}
-
 protected:
     Colour colour;  // Colour of the Piece
 };
 
+
+
 // Derived classes
-class Pawn : public IPiece, public BasePiece {
+class Pawn : public IPiece {
 public:
     // Constructor
     Pawn(Colour colour) 
-        : BasePiece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
 
     // Destructor
     ~Pawn() override {
@@ -76,11 +69,11 @@ public:
     ) override;
 };
 
-class Rook : public BasePiece, public IPiece {
+class Rook : public IPiece {
 public:
     // constructor
     Rook(Colour colour) 
-        : BasePiece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     //destructor
     ~Rook() override {
         // Cleanup code for Pawn (if needed)
@@ -98,11 +91,11 @@ public:
     ) override;
 };
 
-class Bishop : public BasePiece, public IPiece {
+class Bishop : public IPiece {
 public:
     //constructor
     Bishop(Colour colour) 
-        : BasePiece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     //destructor
     ~Bishop() override {
         // Cleanup code for Pawn (if needed)
@@ -119,11 +112,11 @@ public:
     ) override;
 };
 
-class King : public BasePiece, public IPiece {
+class King : public IPiece {
 public:
     //constructor
     King(Colour colour) 
-        : BasePiece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     //destructor
     ~King() override {
         // Cleanup code for Pawn (if needed)
@@ -140,11 +133,11 @@ public:
     ) override;
 };
 
-class Queen : public BasePiece, public IPiece {
+class Queen : public IPiece {
 public:
     // constructor
     Queen(Colour colour) 
-        : BasePiece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     // destructor
     ~Queen() override {
         // Cleanup code for Pawn (if needed)
@@ -161,11 +154,11 @@ public:
     ) override;
 };
 
-class Knight : public BasePiece, public IPiece {
+class Knight : public IPiece {
 public:
     // constructor
     Knight(Colour colour) 
-        : BasePiece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     // destructor
     ~Knight() override {
         // Cleanup code for Pawn (if needed)

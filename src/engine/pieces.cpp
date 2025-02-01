@@ -3,8 +3,6 @@
 namespace Engine {
 namespace Pieces {
 
-class Pawn : public Piece {
-    
-};
+
 };
 };

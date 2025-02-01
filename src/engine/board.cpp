@@ -1,7 +1,10 @@
 #include "engine/board.hpp"
+#include "engine/tile.hpp"
 #include <iostream>
+#include <memory>
 
 using namespace std;
+using namespace Engine;
 
 namespace Engine {
 
@@ -17,6 +20,14 @@ void Board::initBoard() {
     
 }
 
+array<
+    unique_ptr<Engine::Pieces::Piece>, 8
+> backRowStartingOrientationOne() {
+    // R N B Q K B N R
+    return {
+        Pawn()
+    };
+}
 void Board::printBoard() {
     for(int row_n = 0; row_n < size; ++row_n) {
         for(int col_n = 0; col_n < size; ++col_n) {

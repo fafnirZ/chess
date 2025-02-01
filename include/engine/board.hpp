@@ -1,5 +1,8 @@
 #pragma once
 #include "engine/tile.hpp"
+#include <array>
+
+
 namespace Engine {
 
 class Board {
@@ -8,7 +11,11 @@ public:
     Board();
     void initBoard();
     void printBoard();
+
+    std::array<Engine::Tile, 8> backRowStartingOrientationOne();
+    std::array<Engine::Tile, 8> backRowStartingOrientationTwo();
 private:
-    Engine::Tile state[size][size];
+    // 2d array
+    std::array<std::array<Engine::Tile,8>, 8> state;
 };
 } // namespace Engine

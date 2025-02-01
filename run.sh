@@ -1,0 +1,5 @@
+#!/bin/bash
+BUILD_FOLDER_NAME="build"
+BINARY_NAME="chess"
+
+$BUILD_FOLDER_NAME/src/$BINARY_NAME

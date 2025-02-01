@@ -11,7 +11,6 @@ public:
 class Board {
 public:
     Board();
-private:
     void initBoard();
 };
 };

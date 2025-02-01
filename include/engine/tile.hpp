@@ -1,11 +1,11 @@
 #pragma once
 
-#include "engine/piece.hpp"
+#include "engine/pieces/piece.hpp"
 #include <memory>
 namespace Engine {
 
 namespace Pieces {
-    class Piece; // forward ref
+    class IPiece; // forward ref
 }
 
 // essentially the container for either
@@ -17,7 +17,7 @@ public:
     Tile()
         :m_member(nullptr) {}; // member initialiser list syntax
         
-    Tile(std::unique_ptr<Engine::Pieces::Piece> member);
+    Tile(std::unique_ptr<Engine::Pieces::IPiece> member);
     //////////////////////////////////////////////////////////////
     // need to prevent copy constructor
     // since Tile has a unique_ptr, it means Tile cannot 
@@ -29,12 +29,12 @@ public:
     ////////////////////
     // setter getters
     ////////////////////
-    void assignMember(std::unique_ptr<Engine::Pieces::Piece> member);
-    const Engine::Pieces::Piece& getMember() const;
+    void assignMember(std::unique_ptr<Engine::Pieces::IPiece> member);
+    const Engine::Pieces::IPiece& getMember() const;
 
 
 
 protected:
-    std::unique_ptr<Engine::Pieces::Piece> m_member; // needs to be a pointer
+    std::unique_ptr<Engine::Pieces::IPiece> m_member; // needs to be a pointer
 };
 } // namespace Engine

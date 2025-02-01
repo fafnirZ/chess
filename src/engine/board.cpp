@@ -23,11 +23,11 @@ void Board::initBoard() {
 }
 
 array<
-    unique_ptr<Piece>, 8
+    unique_ptr<IPiece>, 8
 > backRowStartingOrientationOne(Colour colour) {
     // R N B Q K B N R
     auto row = 0;
-    return array<unique_ptr<Piece>,8> {
+    return array<unique_ptr<IPiece>,8> {
         std::make_unique<Pawn>(Pawn(colour)),
         std::make_unique<Pawn>(Pawn(colour)),
         std::make_unique<Pawn>(Pawn(colour)),

@@ -5,6 +5,8 @@
 
 using namespace std;
 using namespace Engine;
+using namespace Engine::Pieces;
+
 
 namespace Engine {
 
@@ -21,18 +23,29 @@ void Board::initBoard() {
 }
 
 array<
-    unique_ptr<Engine::Pieces::Piece>, 8
-> backRowStartingOrientationOne() {
+    unique_ptr<Piece>, 8
+> backRowStartingOrientationOne(Colour colour) {
     // R N B Q K B N R
-    return {
-        Pawn()
+    auto row = 0;
+    return array<unique_ptr<Piece>,8> {
+        std::make_unique<Pawn>(Pawn(colour)),
+        std::make_unique<Pawn>(Pawn(colour)),
+        std::make_unique<Pawn>(Pawn(colour)),
+        std::make_unique<Pawn>(Pawn(colour)),
+        std::make_unique<Pawn>(Pawn(colour)),
+        std::make_unique<Pawn>(Pawn(colour)),
+        std::make_unique<Pawn>(Pawn(colour)),
+        std::make_unique<Pawn>(Pawn(colour)),
     };
 }
+
+
+// debug
 void Board::printBoard() {
     for(int row_n = 0; row_n < size; ++row_n) {
         for(int col_n = 0; col_n < size; ++col_n) {
-            auto tile = state[row_n][col_n];
-            if (tile.member == nullptr) {
+            auto tile = m_state[row_n][col_n];
+            if (tile->getMember() == nullptr) {
                 cout << "X";
             }
             // TODO

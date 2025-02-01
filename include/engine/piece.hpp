@@ -9,7 +9,7 @@ namespace Engine {
 
 class Board; // forward referencing
 
-namespace Pieces {
+namespace IPieces {
 
 enum Colour {
     BLACK,
@@ -18,19 +18,13 @@ enum Colour {
 
 // interface
 // Abstract base class for pieces
-class Piece {
+class IPiece {
 public:
-    // Constructor that initializes the piece with a position
-    Piece(Colour colour) 
+    // Constructor that initializes the Ipiece with a position
+    IPiece(Colour colour) 
         : colour(colour) {}
     // Virtual destructor for proper cleanup when deleting via base class pointer
-    virtual ~Piece() = default;
-
-    // comparison against null ptr;
-    bool operator==(std::nullptr_t) const {
-        // assuming "this" is ptr to object
-        return this==nullptr;
-    }
+    virtual ~IPiece() = default;
 
     // Pure virtual functions for derived classes to implement
     virtual void move(
@@ -44,15 +38,25 @@ public:
 
 
 protected:
-    Colour colour;  // Colour of the piece
+    Colour colour;  // Colour of the Ipiece
+};
+
+
+class BasePiece {
+public:
+    // comparison against null ptr;
+    bool operator==(std::nullptr_t) const {
+        // assuming "this" is ptr to object
+        return this==nullptr;
+    }
 };
 
 // Derived classes
-class Pawn : public Piece {
+class Pawn : public IPiece, public BasePiece {
 public:
     // Constructor
     Pawn(Colour colour) 
-        : Piece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
 
     // Destructor
     ~Pawn() override {
@@ -69,11 +73,11 @@ public:
     ) override;
 };
 
-class Rook : public Piece {
+class Rook : public IPiece, public BasePiece {
 public:
     // constructor
     Rook(Colour colour) 
-        : Piece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     //destructor
     ~Rook() override {
         // Cleanup code for Pawn (if needed)
@@ -89,11 +93,11 @@ public:
     ) override;
 };
 
-class Bishop : public Piece {
+class Bishop : public IPiece, public BasePiece {
 public:
     //constructor
     Bishop(Colour colour) 
-        : Piece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     //destructor
     ~Bishop() override {
         // Cleanup code for Pawn (if needed)
@@ -108,11 +112,11 @@ public:
     ) override;
 };
 
-class King : public Piece {
+class King : public IPiece, public BasePiece {
 public:
     //constructor
     King(Colour colour) 
-        : Piece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     //destructor
     ~King() override {
         // Cleanup code for Pawn (if needed)
@@ -128,11 +132,11 @@ public:
     ) override;
 };
 
-class Queen : public Piece {
+class Queen : public IPiece, public BasePiece {
 public:
     // constructor
     Queen(Colour colour) 
-        : Piece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     // destructor
     ~Queen() override {
         // Cleanup code for Pawn (if needed)
@@ -147,11 +151,11 @@ public:
     ) override;
 };
 
-class Knight : public Piece {
+class Knight : public IPiece, public BasePiece {
 public:
     // constructor
     Knight(Colour colour) 
-        : Piece(colour) {}  // Use initializer list
+        : IPiece(colour) {}  // Use initializer list
     // destructor
     ~Knight() override {
         // Cleanup code for Pawn (if needed)
@@ -167,5 +171,5 @@ public:
     ) override;
 };
 
-} // namespace Pieces
+} // namespace IPieces
 } // namespace Engine

@@ -20,7 +20,7 @@ public:
     // Virtual functions are only implemented in subclasses.
     // Virtual destructor is still needed for proper polymorphic behavior when the object is deleted via a base class pointer
     // The =0 syntax is to ensure that the function is "pure virtual" meaning derived classes must implement them.
-    virtual ~Piece() = default;
+    // virtual Piece(std::tuple<int,int> position) = default;
     virtual void move(std::tuple<int,int> new_position) const = 0;
     virtual std::tuple<int,int> getPos() = 0;
     virtual std::vector<std::tuple<int,int>> getAllMovablePositions() = 0;

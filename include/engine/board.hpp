@@ -1,15 +1,12 @@
 #pragma once
+#include "engine/tile.hpp"
 namespace Engine {
 
-class BoardConstants {
-public:
-    int width = 8;
-    int height = 8;
-};
-
+int size = 8;
 class Board {
 public:
     Board();
     void initBoard();
-};
+private:
+    (Engine::Tile)[size][size] state;
 };

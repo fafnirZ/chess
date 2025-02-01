@@ -7,7 +7,10 @@ Board::Board() {
     initBoard();
 }
 void Board::initBoard() {
-    // TODO;
-    std::cout << "hello wqrld";
+    
+    // NOTE hardcoding black on top and white on bottom first;
+    
+    
 }
+
 }

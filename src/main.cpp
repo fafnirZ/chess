@@ -2,4 +2,6 @@
 
 int main() {
     Engine::Board();
+
+    return 0;
 }

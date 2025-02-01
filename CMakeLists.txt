@@ -4,7 +4,5 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(chess CXX)
 
-
-find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
-find_package(GLFW3 REQUIRED)
+add_executable(chess opengl_example.cpp)
+target_link_libraries(chess glfw glew)

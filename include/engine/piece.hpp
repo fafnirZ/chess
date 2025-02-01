@@ -67,9 +67,10 @@ public:
 
 class Bishop : public Piece {
 public:
+    //constructor
     Bishop(std::tuple<int, int> position, Colour colour) 
         : Piece(position, colour) {}  // Use initializer list
-        //destructor
+    //destructor
     ~Bishop() override {
         // Cleanup code for Pawn (if needed)
     }
@@ -80,6 +81,7 @@ public:
 
 class King : public Piece {
 public:
+    //constructor
     King(std::tuple<int, int> position, Colour colour) 
         : Piece(position, colour) {}  // Use initializer list
     //destructor

@@ -7,6 +7,7 @@ public:
     static constexpr int size = 8; // board constant
     Board();
     void initBoard();
+    void printBoard();
 private:
     Engine::Tile state[size][size];
 };

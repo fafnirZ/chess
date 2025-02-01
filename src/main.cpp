@@ -1,7 +1,8 @@
 #include "engine/board.hpp"
 
 int main() {
-    Engine::Board();
-
+    auto board = Engine::Board();
+    
+    board.printBoard();
     return 0;
 }

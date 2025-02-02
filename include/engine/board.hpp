@@ -27,8 +27,7 @@ public:
 
     // to swap tile refs 
     std::vector<std::unique_ptr<Tile>> backRowStartingOrientationOne(Pieces::Colour colour);
-    // std::vector<std::unique_ptr<Pieces::IPiece>> backRowStartingOrientationTwo(Pieces::Colour colour);
-
+    std::vector<std::unique_ptr<Tile>> entireRowOfPawns(Pieces::Colour colour);
 private:
     // 2d vector
     std::vector<std::vector<std::unique_ptr<Engine::Tile>>> m_state;

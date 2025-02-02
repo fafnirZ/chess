@@ -19,8 +19,22 @@ Engine::Board::Board() {
 void Engine::Board::initBoard() {
     
     // NOTE hardcoding black on top and white on bottom first;
-    cout << "hello";
-    
+    auto outer_vec = vector<vector<unique_ptr<Engine::Tile>>>();
+    for(int row_n=0; row_n < size; row_n++) {
+        auto inner_vec = vector<unique_ptr<Engine::Tile>>();
+        for(int col_n=0; col_n <size; col_n++) {
+            inner_vec.push_back(
+                std::make_unique<Engine::Tile>()
+            ); // initialise with nullptr
+        }
+        // NOTE: because push_back needs to do a copy
+        // we gotta do a std::move instead to transfer ownership
+        outer_vec.push_back(
+            std::move(inner_vec)
+        );
+    }
+    // transfer ownership to the attribute
+    m_state = std::move(outer_vec);
 }
 
 

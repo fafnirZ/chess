@@ -25,7 +25,7 @@ public:
     // be copiable-unless we deep-copy it.
     // in current scenario I'm just gonna delete it.
     /////////////////////////////////////////////////////////////
-    // Tile(const Tile&) = delete; // prevents copying explicitly
+    Tile(const Tile&) = delete; // prevents copying explicitly
 
     ////////////////////
     // setter getters

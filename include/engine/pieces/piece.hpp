@@ -21,7 +21,6 @@ public:
         : colour(colour) {}
     // Virtual destructor for proper cleanup when deleting via base class pointer
     virtual ~IPiece() = default;
-
     virtual bool operator==(std::nullptr_t) const = 0;
 
     // Pure virtual functions for derived classes to implement
@@ -44,14 +43,11 @@ protected:
 class Pawn : public IPiece {
 public:
     // Constructor
-    Pawn(Colour colour) 
-        : IPiece(colour) {}  // Use initializer list
-
+    Pawn(Colour colour);
     // Destructor
     ~Pawn() override {
         // Cleanup code for Pawn (if needed)
     }
-
     // comparison against null ptr;
     bool operator==(std::nullptr_t) const override;
 

@@ -1,6 +1,10 @@
 #include "engine/pieces/piece.hpp"
 #include "engine/board.hpp"
 
+// Constructor
+Engine::Pieces::Pawn::Pawn(Colour colour) 
+    : IPiece(colour) {}  // Use initializer list
+
 bool Engine::Pieces::Pawn::operator==(std::nullptr_t) const{
     return this == nullptr;
 }

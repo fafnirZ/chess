@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <array>
+#include <vector>
 // #include "engine/tile.hpp"
 // #include "engine/pieces/piece.hpp"
 #include "engine/pieces/colour.hpp"
@@ -25,10 +25,11 @@ public:
     void printBoard();
 
     // to swap tile refs 
-    std::array<std::unique_ptr<Pieces::IPiece>, 8> backRowStartingOrientationOne(Pieces::Colour colour);
-    std::array<std::unique_ptr<Pieces::IPiece>, 8> backRowStartingOrientationTwo(Pieces::Colour colour);
+    std::vector<std::unique_ptr<Pieces::IPiece>> backRowStartingOrientationOne(Pieces::Colour colour);
+    // std::vector<std::unique_ptr<Pieces::IPiece>> backRowStartingOrientationTwo(Pieces::Colour colour);
+
 private:
-    // 2d array
-    std::array<std::array<Engine::Tile*,8>, 8> m_state;
+    // 2d vector
+    std::vector<std::vector<std::unique_ptr<Engine::Tile>>> m_state;
 };
 } // namespace Engine

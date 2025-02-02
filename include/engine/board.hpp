@@ -26,7 +26,7 @@ public:
     void printBoard();
 
     // to swap tile refs 
-    // std::vector<std::unique_ptr<Pieces::IPiece>> backRowStartingOrientationOne(Pieces::Colour colour);
+    std::vector<std::unique_ptr<Tile>> backRowStartingOrientationOne(Pieces::Colour colour);
     // std::vector<std::unique_ptr<Pieces::IPiece>> backRowStartingOrientationTwo(Pieces::Colour colour);
 
 private:

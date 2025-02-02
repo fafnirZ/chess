@@ -18,6 +18,16 @@ Engine::Board::Board() {
 // private init board fn.
 void Engine::Board::initBoard() {
     initNullBoard();
+
+    // replace top row 
+    m_state[0] = std::move(
+        backRowStartingOrientationOne(
+            Engine::Pieces::Colour::BLACK
+        )
+    );
+
+    // replace bottom row
+
 }
 
 void Engine::Board::initNullBoard() {
@@ -29,38 +39,53 @@ void Engine::Board::initNullBoard() {
             inner_vec.push_back(
                 std::make_unique<Engine::Tile>()
             ); // initialise with nullptr
-        }
+        }  
         // NOTE: because push_back needs to do a copy
         // we gotta do a std::move instead to transfer ownership
+        // transfer ownership to the attribute
         outer_vec.push_back(
             std::move(inner_vec)
         );
     }
-    // transfer ownership to the attribute
     m_state = std::move(outer_vec);
 }
 
+vector<std::unique_ptr<Engine::Tile>> Engine::Board::backRowStartingOrientationOne(Engine::Pieces::Colour colour) {
+    // R N B Q K B N R
+    // NOTE: std::make_unique<>(**constructor_args)
+    // memory allocates and constructs the object.
 
-// vector<std::unique_ptr<Engine::Pieces::IPiece>> Engine::Board::backRowStartingOrientationOne(Engine::Pieces::Colour colour) {
-//     // R N B Q K B N R
-//     // NOTE: std::make_unique<>(**constructor_args)
-//     // memory allocates and constructs the object.
+    vector<std::unique_ptr<Engine::Tile>> pieces;
 
-//     vector<std::unique_ptr<Engine::Pieces::IPiece>> pieces;
+    // NOTE initialiser list requires copy constructor 
+    // to be implemented to work
+    pieces.push_back(
+        std::make_unique<Engine::Tile>(
+            std::make_unique<Engine::Pieces::Pawn>(colour)));
+    pieces.push_back(
+        std::make_unique<Engine::Tile>(
+            std::make_unique<Engine::Pieces::Pawn>(colour)));
+    pieces.push_back(
+        std::make_unique<Engine::Tile>(
+            std::make_unique<Engine::Pieces::Pawn>(colour)));
+    pieces.push_back(
+        std::make_unique<Engine::Tile>(
+            std::make_unique<Engine::Pieces::Pawn>(colour)));
+    pieces.push_back(
+        std::make_unique<Engine::Tile>(
+            std::make_unique<Engine::Pieces::Pawn>(colour)));
+    pieces.push_back(
+        std::make_unique<Engine::Tile>(
+            std::make_unique<Engine::Pieces::Pawn>(colour)));
+    pieces.push_back(
+        std::make_unique<Engine::Tile>(
+            std::make_unique<Engine::Pieces::Pawn>(colour)));
+    pieces.push_back(
+        std::make_unique<Engine::Tile>(
+            std::make_unique<Engine::Pieces::Pawn>(colour)));
 
-//     // NOTE initialiser list requires copy constructor 
-//     // to be implemented to work
-//     pieces.push_back(std::make_unique<Engine::Pieces::Pawn>(colour));
-//     pieces.push_back(std::make_unique<Engine::Pieces::Pawn>(colour));
-//     pieces.push_back(std::make_unique<Engine::Pieces::Pawn>(colour));
-//     pieces.push_back(std::make_unique<Engine::Pieces::Pawn>(colour));
-//     pieces.push_back(std::make_unique<Engine::Pieces::Pawn>(colour));
-//     pieces.push_back(std::make_unique<Engine::Pieces::Pawn>(colour));
-//     pieces.push_back(std::make_unique<Engine::Pieces::Pawn>(colour));
-//     pieces.push_back(std::make_unique<Engine::Pieces::Pawn>(colour));
-
-//     return pieces;
-// }
+    return pieces;
+}
 
 // vector<std::unique_ptr<Engine::Pieces::IPiece>> Engine::Board::backRowStartingOrientationTwo(Engine::Pieces::Colour colour) {
 //     // TODO reserve space.

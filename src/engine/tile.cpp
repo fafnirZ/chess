@@ -1,5 +1,6 @@
 #include <memory>
 #include "engine/tile.hpp"
+#include "engine/pieces/piece.hpp"
 
 // init
 
@@ -12,6 +13,6 @@ Engine::Tile::Tile(std::unique_ptr<Engine::Pieces::IPiece> member) {
 }
 
 // reference but not owned
-Engine::Pieces::IPiece& Engine::Tile::getMember() {
-    return *m_member;
+Engine::Pieces::IPiece* Engine::Tile::getMember() {
+    return m_member.get(); // returns raw pointer or null ptr
 }

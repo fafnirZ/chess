@@ -57,7 +57,8 @@ void Engine::Board::printBoard() {
     for(int row_n = 0; row_n < size; ++row_n) {
         for(int col_n = 0; col_n < size; ++col_n) {
             auto tile = m_state[row_n][col_n];
-            if (tile->getMember() == nullptr) {
+            Engine::Pieces::IPiece* tileMember = tile->getMember();
+            if (tileMember == nullptr) {
                 cout << "X";
             }
             // TODO

@@ -16,6 +16,10 @@ while [[ $# -gt 0 ]]; do
             MAKE_VERBOSE=true
             shift
             ;;
+        -d|--debug)
+            CMAKE_DEBUG=true
+            shift
+            ;;
         *)
             POSITIONAL_ARGS+=("$1")
             shift
@@ -41,6 +45,8 @@ if [[ $CMAKE_VERBOSE ]]; then
     cmake_flags+=("--trace-expand")
 elif [[ $MAKE_VERBOSE ]]; then
     cmake_flags+=("-DCMAKE_VERBOSE_MAKEFILE=ON")
+elif [[ $CMAKE_DEBUG ]]; then
+    cmake_flags+=("-DCMAKE_BUILD_TYPE=Debug")
 fi
 cmake_flags_string="${cmake_flags[*]}" # space delimited
 

@@ -32,7 +32,7 @@ public:
     ////////////////////
     void assignMember(std::unique_ptr<Engine::Pieces::IPiece> member);
     
-    Engine::Pieces::IPiece& getMember();
+    Engine::Pieces::IPiece* getMember();
 
 protected:
     std::unique_ptr<Engine::Pieces::IPiece> m_member; // needs to be a pointer

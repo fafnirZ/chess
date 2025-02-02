@@ -27,7 +27,11 @@ void Engine::Board::initBoard() {
     );
 
     // replace bottom row
-
+    m_state[size-1] = std::move(
+        backRowStartingOrientationOne(
+            Engine::Pieces::Colour::WHITE
+        )
+    );
 }
 
 void Engine::Board::initNullBoard() {
@@ -100,9 +104,11 @@ void Engine::Board::printBoard() {
     // range based for lloop read only access
     for(const auto& rowRef: m_state) {
         for(const auto& tilePtr: rowRef) {
-            const auto* nullableTileMember = tilePtr->getMember();
+            Engine::Pieces::IPiece* nullableTileMember = tilePtr->getMember();
             if (nullableTileMember == nullptr) {
                 cout << "X";
+            } else {
+                cout << nullableTileMember->getPieceSymbol();
             }
         }
         cout << "\n";

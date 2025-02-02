@@ -22,3 +22,8 @@ std::vector<std::tuple<int, int>> Engine::Pieces::Pawn::getAllMovablePositions(
     //todo
     return std::vector<std::tuple<int,int>>();
 }
+
+
+char Engine::Pieces::Pawn::getPieceSymbol() {
+    return 'P';
+}

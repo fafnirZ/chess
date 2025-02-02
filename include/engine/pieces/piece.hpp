@@ -33,6 +33,8 @@ public:
         std::tuple<int,int> curr_position
     ) = 0;
 
+    virtual char getPieceSymbol() = 0;
+
 protected:
     Colour colour;  // Colour of the Piece
 };
@@ -59,6 +61,8 @@ public:
     std::vector<std::tuple<int, int>> getAllMovablePositions(
         std::tuple<int,int> curr_position
     ) override;
+
+    char getPieceSymbol() override;
 };
 
 class Rook : public IPiece {
@@ -81,6 +85,8 @@ public:
     std::vector<std::tuple<int, int>> getAllMovablePositions(
         std::tuple<int,int> curr_position
     ) override;
+
+    char getPieceSymbol() override;
 };
 
 class Bishop : public IPiece {
@@ -102,6 +108,8 @@ public:
     std::vector<std::tuple<int, int>> getAllMovablePositions(
         std::tuple<int,int> curr_position
     ) override;
+
+    char getPieceSymbol() override;
 };
 
 class King : public IPiece {
@@ -123,6 +131,8 @@ public:
     std::vector<std::tuple<int, int>> getAllMovablePositions(
         std::tuple<int,int> curr_position
     ) override;
+
+    char getPieceSymbol() override;
 };
 
 class Queen : public IPiece {
@@ -144,6 +154,8 @@ public:
     std::vector<std::tuple<int, int>> getAllMovablePositions(
         std::tuple<int,int> curr_position
     ) override;
+
+    char getPieceSymbol() override;
 };
 
 class Knight : public IPiece {
@@ -165,6 +177,8 @@ public:
     std::vector<std::tuple<int, int>> getAllMovablePositions(
         std::tuple<int,int> curr_position
     ) override;
+
+    char getPieceSymbol() override;
 };
 
 } // namespace IPieces

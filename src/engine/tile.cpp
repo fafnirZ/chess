@@ -12,7 +12,7 @@ Engine::Tile::Tile() {
 }
 
 Engine::Tile::Tile(std::unique_ptr<Engine::Pieces::IPiece> member) {
-    member = std::move(member);
+    m_member = std::move(member);
 }
 
 // reference but not owned

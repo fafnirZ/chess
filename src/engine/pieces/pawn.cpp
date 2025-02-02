@@ -1,27 +1,30 @@
 #include "engine/pieces/piece.hpp"
+#include "engine/board.hpp"
+
+
 
 namespace Engine {
+
+class Board; // forward ref
 namespace Pieces {
 
-Pawn::~Pawn() override {
-    // does nothing
-}
 
-bool Pawn::operator==(std::nullptr_t) const override {
+bool Pawn::operator==(std::nullptr_t) const{
     return this == nullptr;
 }
 
 void Pawn::move(
     Engine::Board* board,
     std::tuple<int, int> new_position
-) override {
+) {
     //todo
 }
 
 std::vector<std::tuple<int, int>> Pawn::getAllMovablePositions(
     std::tuple<int,int> curr_position
-) override {
+) {
     //todo
+    return std::vector<std::tuple<int,int>>();
 }
 
 } // namespace pieces

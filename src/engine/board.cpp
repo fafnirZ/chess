@@ -4,12 +4,13 @@
 #include <memory>
 
 using namespace std;
-using namespace Engine;
-using namespace Engine::Pieces;
+// using namespace Engine;
+// using namespace Engine::Pieces;
 
 
 namespace Engine {
 
+// constructor
 Board::Board() {
     initBoard();
 }
@@ -24,7 +25,7 @@ void Board::initBoard() {
 
 array<
     unique_ptr<IPiece>, 8
-> backRowStartingOrientationOne(Colour colour) {
+> Board::backRowStartingOrientationOne(Colour colour) {
     // R N B Q K B N R
     auto row = 0;
     return array<unique_ptr<IPiece>,8> {
@@ -37,6 +38,12 @@ array<
         std::make_unique<Pawn>(Pawn(colour)),
         std::make_unique<Pawn>(Pawn(colour)),
     };
+}
+
+array<
+    unique_ptr<IPiece>, 8
+> Engine::Board::backRowStartingOrientationOne(Colour colour) {
+    // TODO.
 }
 
 
@@ -54,4 +61,4 @@ void Board::printBoard() {
     }
 }
 
-}
+} // namespace Engine

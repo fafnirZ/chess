@@ -1,11 +1,21 @@
 #pragma once
-#include "engine/tile.hpp"
+#include <memory>
 #include <array>
+// #include "engine/tile.hpp"
+// #include "engine/pieces/piece.hpp"
+#include "engine/pieces/colour.hpp"
 
 
 namespace Engine {
 
-class Tile; // forward ref
+// start forward refs
+class Tile;
+namespace Pieces {
+    class IPiece; 
+    // enum Colour;
+}
+// end forward refs
+
 
 class Board {
 public:
@@ -14,8 +24,9 @@ public:
     void initBoard();
     void printBoard();
 
-    std::array<Engine::Tile, 8> backRowStartingOrientationOne();
-    std::array<Engine::Tile, 8> backRowStartingOrientationTwo();
+    // to swap tile refs 
+    std::array<std::unique_ptr<Pieces::IPiece>, 8> backRowStartingOrientationOne(Pieces::Colour colour);
+    std::array<std::unique_ptr<Pieces::IPiece>, 8> backRowStartingOrientationTwo(Pieces::Colour colour);
 private:
     // 2d array
     std::array<std::array<Engine::Tile*,8>, 8> m_state;

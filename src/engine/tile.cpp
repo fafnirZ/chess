@@ -1,16 +1,17 @@
-#include <engine/tile.hpp>
 #include <memory>
-
-namespace Engine {
+#include "engine/tile.hpp"
 
 // init
-Tile::Tile(std::unique_ptr<Engine::Pieces::IPiece> member) {
+
+// initialises member as null pointer
+Engine::Tile::Tile()
+    :m_member(nullptr) {}; // member initialiser list syntax
+
+Engine::Tile::Tile(std::unique_ptr<Engine::Pieces::IPiece> member) {
     member = std::move(member);
 }
 
 // reference but not owned
-const Engine::Pieces::IPiece& Tile::getMember() const {
+Engine::Pieces::IPiece& Engine::Tile::getMember() {
     return *m_member;
-}
-
 }

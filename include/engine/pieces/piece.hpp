@@ -4,17 +4,13 @@
 #include <tuple>
 #include <vector>
 #include "engine/board.hpp"
+#include "engine/pieces/colour.hpp"
 
 namespace Engine {
 
 class Board; // forward referencing
 
 namespace Pieces {
-
-enum Colour {
-    BLACK,
-    WHITE,
-};
 
 // interface
 // Abstract base class for pieces

@@ -1,22 +1,23 @@
 #pragma once
-
-#include "engine/pieces/piece.hpp"
 #include <memory>
-namespace Engine {
 
-namespace Pieces {
-    class IPiece; // forward ref
+// Forward References
+namespace Engine {
+    namespace Pieces {
+        class IPiece; // forward ref
+    }
 }
+// end Forward References
+
+namespace Engine {
 
 // essentially the container for either
 // a null pointer or a piece.
 class Tile {
 public:
 
-    // initialises member as null pointer
-    Tile()
-        :m_member(nullptr) {}; // member initialiser list syntax
-        
+    // constructors 
+    Tile();
     Tile(std::unique_ptr<Engine::Pieces::IPiece> member);
     //////////////////////////////////////////////////////////////
     // need to prevent copy constructor
@@ -30,9 +31,8 @@ public:
     // setter getters
     ////////////////////
     void assignMember(std::unique_ptr<Engine::Pieces::IPiece> member);
-    const Engine::Pieces::IPiece& getMember() const;
-
-
+    
+    Engine::Pieces::IPiece& getMember();
 
 protected:
     std::unique_ptr<Engine::Pieces::IPiece> m_member; // needs to be a pointer

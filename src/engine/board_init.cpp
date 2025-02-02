@@ -74,31 +74,32 @@ vector<std::unique_ptr<Engine::Tile>> Engine::Board::backRowStartingOrientationO
     // to be implemented to work
     pieces.push_back(
         std::make_unique<Engine::Tile>(
-            std::make_unique<Engine::Pieces::Pawn>(colour)));
+            std::make_unique<Engine::Pieces::Rook>(colour)));
     pieces.push_back(
         std::make_unique<Engine::Tile>(
-            std::make_unique<Engine::Pieces::Pawn>(colour)));
+            std::make_unique<Engine::Pieces::Knight>(colour)));
     pieces.push_back(
         std::make_unique<Engine::Tile>(
-            std::make_unique<Engine::Pieces::Pawn>(colour)));
+            std::make_unique<Engine::Pieces::Bishop>(colour)));
     pieces.push_back(
         std::make_unique<Engine::Tile>(
-            std::make_unique<Engine::Pieces::Pawn>(colour)));
+            std::make_unique<Engine::Pieces::Queen>(colour)));
     pieces.push_back(
         std::make_unique<Engine::Tile>(
-            std::make_unique<Engine::Pieces::Pawn>(colour)));
+            std::make_unique<Engine::Pieces::King>(colour)));
     pieces.push_back(
         std::make_unique<Engine::Tile>(
-            std::make_unique<Engine::Pieces::Pawn>(colour)));
+            std::make_unique<Engine::Pieces::Bishop>(colour)));
     pieces.push_back(
         std::make_unique<Engine::Tile>(
-            std::make_unique<Engine::Pieces::Pawn>(colour)));
+            std::make_unique<Engine::Pieces::Knight>(colour)));
     pieces.push_back(
         std::make_unique<Engine::Tile>(
-            std::make_unique<Engine::Pieces::Pawn>(colour)));
+            std::make_unique<Engine::Pieces::Rook>(colour)));
 
     return pieces;
 }
+
 
 
 vector<std::unique_ptr<Engine::Tile>> Engine::Board::entireRowOfPawns(Engine::Pieces::Colour colour) {

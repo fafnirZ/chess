@@ -68,8 +68,7 @@ public:
 class Rook : public IPiece {
 public:
     // constructor
-    Rook(Colour colour) 
-        : IPiece(colour) {}  // Use initializer list
+    Rook(Colour colour);
     //destructor
     ~Rook() override {
         // Cleanup code for Pawn (if needed)
@@ -92,8 +91,7 @@ public:
 class Bishop : public IPiece {
 public:
     //constructor
-    Bishop(Colour colour) 
-        : IPiece(colour) {}  // Use initializer list
+    Bishop(Colour colour);
     //destructor
     ~Bishop() override {
         // Cleanup code for Pawn (if needed)
@@ -115,8 +113,7 @@ public:
 class King : public IPiece {
 public:
     //constructor
-    King(Colour colour) 
-        : IPiece(colour) {}  // Use initializer list
+    King(Colour colour);
     //destructor
     ~King() override {
         // Cleanup code for Pawn (if needed)
@@ -138,8 +135,7 @@ public:
 class Queen : public IPiece {
 public:
     // constructor
-    Queen(Colour colour) 
-        : IPiece(colour) {}  // Use initializer list
+    Queen(Colour colour);
     // destructor
     ~Queen() override {
         // Cleanup code for Pawn (if needed)
@@ -161,8 +157,7 @@ public:
 class Knight : public IPiece {
 public:
     // constructor
-    Knight(Colour colour) 
-        : IPiece(colour) {}  // Use initializer list
+    Knight(Colour colour);
     // destructor
     ~Knight() override {
         // Cleanup code for Pawn (if needed)

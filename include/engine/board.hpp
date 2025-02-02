@@ -1,22 +1,22 @@
 #pragma once
 #include <memory>
 #include <vector>
-// #include "engine/tile.hpp"
-// #include "engine/pieces/piece.hpp"
+#include "engine/tile.hpp"
+#include "engine/pieces/piece.hpp"
 #include "engine/pieces/colour.hpp"
 
 
-namespace Engine {
-
 // start forward refs
-class Tile;
-namespace Pieces {
-    class IPiece; 
-    // enum Colour;
+namespace Engine {
+    class Tile;
+    namespace Pieces {
+        class IPiece; 
+    }
 }
 // end forward refs
 
 
+namespace Engine {
 class Board {
 public:
     static constexpr int size = 8; // board constant
@@ -25,7 +25,7 @@ public:
     void printBoard();
 
     // to swap tile refs 
-    std::vector<std::unique_ptr<Pieces::IPiece>> backRowStartingOrientationOne(Pieces::Colour colour);
+    // std::vector<std::unique_ptr<Pieces::IPiece>> backRowStartingOrientationOne(Pieces::Colour colour);
     // std::vector<std::unique_ptr<Pieces::IPiece>> backRowStartingOrientationTwo(Pieces::Colour colour);
 
 private:

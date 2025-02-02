@@ -5,8 +5,11 @@
 // init
 
 // initialises member as null pointer
-Engine::Tile::Tile()
-    :m_member(nullptr) {}; // member initialiser list syntax
+// cannot use inialise lists
+// since they are copy references.
+Engine::Tile::Tile() {
+    m_member = nullptr;
+}
 
 Engine::Tile::Tile(std::unique_ptr<Engine::Pieces::IPiece> member) {
     member = std::move(member);

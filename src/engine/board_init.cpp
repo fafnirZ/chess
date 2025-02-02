@@ -1,6 +1,7 @@
 #include "engine/board.hpp"
 #include "engine/tile.hpp"
 #include "engine/pieces/piece.hpp"
+#include "engine/utils.hpp"
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -37,11 +38,9 @@ void Engine::Board::initBoard() {
     );
 
     // replace bottom row
-    m_state[size-1] = std::move(
-        backRowStartingOrientationOne(
-            Engine::Pieces::Colour::WHITE
-        )
-    );
+    const auto& orientation = backRowStartingOrientationOne(Engine::Pieces::Colour::WHITE);
+    std::vector<std::unique_ptr<Engine::Tile>> reversed_orientation = Engine::Utils::reverse_unique_ptr_deep_copy_vals(orientation);
+    m_state[size-1] = std::move(reversed_orientation);
 }
 
 void Engine::Board::initNullBoard() {

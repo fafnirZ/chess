@@ -17,7 +17,10 @@ Engine::Board::Board() {
 
 // private init board fn.
 void Engine::Board::initBoard() {
-    
+    initNullBoard();
+}
+
+void Engine::Board::initNullBoard() {
     // NOTE hardcoding black on top and white on bottom first;
     auto outer_vec = vector<vector<unique_ptr<Engine::Tile>>>();
     for(int row_n=0; row_n < size; row_n++) {
@@ -69,17 +72,15 @@ void Engine::Board::initBoard() {
 
 // debug
 void Engine::Board::printBoard() {
-    
-    // for(int row_n = 0; row_n < size; ++row_n) {
-    //     for(int col_n = 0; col_n < size; ++col_n) {
-    //         auto tile = m_state[row_n][col_n];
-    //         Engine::Pieces::IPiece* tileMember = tile->getMember();
-    //         if (tileMember == nullptr) {
-    //             cout << "X";
-    //         }
-    //         // TODO
-    //     }
-    //     cout << "\n";
-    // }
+    // range based for lloop read only access
+    for(const auto& rowRef: m_state) {
+        for(const auto& tilePtr: rowRef) {
+            const auto* nullableTileMember = tilePtr->getMember();
+            if (nullableTileMember == nullptr) {
+                cout << "X";
+            }
+        }
+        cout << "\n";
+    }
 }
 

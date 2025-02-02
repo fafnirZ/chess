@@ -22,6 +22,7 @@ public:
     static constexpr int size = 8; // board constant
     Board();
     void initBoard();
+    void initNullBoard();
     void printBoard();
 
     // to swap tile refs 

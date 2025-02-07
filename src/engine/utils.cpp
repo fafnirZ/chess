@@ -1,6 +1,7 @@
 #include <vector>
 #include <memory>
 #include <algorithm>
+#include "engine/tile.hpp"
 
 namespace Engine {
 namespace Utils {
@@ -24,6 +25,12 @@ std::vector<std::unique_ptr<T>> reverse_unique_ptr_deep_copy_vals(
     }
     return reversed;
 }
+
+// NOTE: YOU NEED TO EXPLICITLY INSTANTIATE THE TYPE FOR TEMPLATE
+// NO wonder I was getting linker errors
+template std::vector<std::unique_ptr<Engine::Tile>> reverse_unique_ptr_deep_copy_vals(
+    const std::vector<std::unique_ptr<Engine::Tile>>& original
+);
 
 }
 }

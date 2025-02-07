@@ -38,8 +38,8 @@ void Engine::Board::initBoard() {
     );
 
     // replace bottom row
-    const auto& orientation = backRowStartingOrientationOne(Engine::Pieces::Colour::WHITE);
-    std::vector<std::unique_ptr<Engine::Tile>> reversed_orientation = Engine::Utils::reverse_unique_ptr_deep_copy_vals(orientation);
+    const std::vector<std::unique_ptr<Engine::Tile>>& orientation = backRowStartingOrientationOne(Engine::Pieces::Colour::WHITE);
+    auto reversed_orientation = Engine::Utils::reverse_unique_ptr_deep_copy_vals(orientation);
     m_state[size-1] = std::move(reversed_orientation);
 }
 

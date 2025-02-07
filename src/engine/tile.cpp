@@ -15,7 +15,13 @@ Engine::Tile::Tile(std::unique_ptr<Engine::Pieces::IPiece> member) {
     m_member = std::move(member);
 }
 
+std::unique_ptr<Engine::Tile> Engine::Tile::clone() const {
+    return make_unique<Engine::Tile>(m_member);
+}
+
 // reference but not owned
 Engine::Pieces::IPiece* Engine::Tile::getMember() {
     return m_member.get(); // returns raw pointer or null ptr
 }
+
+
